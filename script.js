@@ -1,11 +1,20 @@
 
-const textbox = document.getElementById("evaluatedText");
-const wordCount = document.getElementById("wordCount");
+const textBox = document.getElementById('evaluatedText');
+const wordCount = document.getElementById('wordCount');
 
 
-textbox.addEventListener("input", function() {
+textBox.addEventListener('keyup', function() {
+    
+    if(textBox.value === ""){
+        wordCount.innerText = 0
+    }
+    else{
+        const text = textBox.value.trim().split(" ")
 
-  const count = this.value.split(" ").length;
-
-  wordCount.innerHTML = count;
+        if(text.length > 0)
+          {
+            wordCount.innerText = text.length
+          }
+    }
+ 
 });
